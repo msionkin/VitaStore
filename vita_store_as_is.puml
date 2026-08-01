@@ -1,0 +1,34 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Артефакт 1. Схема текущего ландшафта (As-Is C4 Container Diagram)\n(Найден на внутреннем Wiki-портале)
+
+Person(cashier, "Кассир", "Сотрудник магазина")
+
+System_Boundary(hq, "Central Office (HQ Cloud)") {
+    Container(sap, "SAP ERP", "", "Главная центральная система учета (Товары, цены, лояльность)")
+}
+
+System_Boundary(store, "Store Edge (Магазин)") {
+    Container(pos, "POS App (Толстый клиент)", "Windows, C#", "Монолитное десктопное приложение. Содержит бизнес-логику и драйверы устройств.")
+    ContainerDb(db, "Local DB", "MS SQL Express", "БД на сервере в подсобке. Хранит чеки и справочники магазина.")
+    Container_Ext(printer, "Fiscal Printer", "", "Аппарат ККТ (COM-port)")
+    Container_Ext(terminal, "Ingenico Payment Terminal", "", "Банковский терминал (USB)")
+}
+
+Rel(cashier, pos, "Работает с кассой", "UI")
+Rel(pos, sap, "Real-time stock & loyalty update", "REST API")
+Rel(pos, db, "Читает цены, пишет чеки", "Synchronous")
+Rel(pos, printer, "Прямое управление печатью", "COM-port driver")
+Rel(pos, terminal, "Инициация оплаты", "USB driver")
+
+note right of pos
+  POS App жестко привязан
+  к конкретным моделям
+  оборудования через
+  встроенные драйверы.
+end note
+
+@enduml
