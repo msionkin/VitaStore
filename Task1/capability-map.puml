@@ -1,0 +1,58 @@
+@startwbs VitaStore-Business-Capability-Map
+<style>
+wbsDiagram {
+  arrow { LineColor #7F8C8D }
+  node {
+    Padding 8
+    Margin 7
+    HorizontalAlignment center
+    LineColor #2C3E50
+    LineThickness 1.0
+    RoundCorner 8
+    MaximumWidth 200
+    FontName "Helvetica"
+    FontSize 12
+  }
+  .root      { BackGroundColor #17202A; FontColor #FFFFFF; FontStyle bold; FontSize 15; }
+  .l1        { BackGroundColor #2C3E50; FontColor #FFFFFF; FontStyle bold; }
+  .commodity { BackGroundColor #C0392B; FontColor #FFFFFF; }
+  .diff      { BackGroundColor #1E8449; FontColor #FFFFFF; }
+  .neutral   { BackGroundColor #808B96; FontColor #FFFFFF; }
+}
+</style>
+
+* VitaStore\nБизнес-возможности (L1/L2) <<root>>
+
+** Продажи и касса <<l1>>
+*** Пробитие чеков (POS / касса) <<commodity>>
+*** Приём платежей / эквайринг\n(банковские терминалы) <<commodity>>
+*** Фискализация <<neutral>>
+
+** Маркетинг и лояльность <<l1>>
+*** Promo Engine\n(движок промоакций) <<diff>>
+*** Программа лояльности\n(сейчас «в тетрадке») <<commodity>>
+
+** Логистика и фулфилмент <<l1>>
+*** Smart Fulfillment\nClick & Collect (омниканал) <<diff>>
+*** Приём товара\n(локальные поставщики) <<commodity>>
+
+** Управление ассортиментом\nи мастер-данные <<l1>>
+*** Управление ассортиментом <<neutral>>
+*** Мастер-данные номенклатуры\n(SKU, эталонная база) <<neutral>>
+
+** Операции магазина <<l1>>
+*** Товарный учёт (back-office) <<commodity>>
+*** Инкассация <<commodity>>
+*** Печать ценников <<commodity>>
+*** Расчёт премий продавцам\n(локальный) <<commodity>>
+
+** Финансы и персонал (HQ) <<l1>>
+*** Финансовый учёт (SAP ERP) <<neutral>>
+*** Кадровый учёт (SAP ERP) <<neutral>>
+
+** ИТ, интеграция и M&A <<l1>>
+*** Интеграция данных / SKU-matching\n(маппинг номенклатуры) <<commodity>>
+*** Онбординг новой точки\n(M&A-интеграция) <<commodity>>
+*** Локальная ИТ-инфраструктура магазина\n(серверы, БД, лицензии) <<commodity>>
+
+@endwbs
