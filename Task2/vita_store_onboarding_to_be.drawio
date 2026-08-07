@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram id="onboarding-to-be" name="Онбординг магазина To-Be">
-    <mxGraphModel dx="1341" dy="895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="958" dy="639" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -13,13 +13,13 @@
         <mxCell id="n_start" parent="lane1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D5F5E3;strokeColor=#1E8449;fontSize=11;" value="Сделка M&amp;A закрыта" vertex="1">
           <mxGeometry height="60" width="58" x="122" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="n_dump" parent="lane1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5D6D7E;fontSize=11;" value="Выгрузка номенклатуры из старой кассы (CSV / XLS)" vertex="1">
+        <mxCell id="n_dump" parent="lane1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5D6D7E;fontSize=11;" value="Импорт номенклатуры из старой кассы через API" vertex="1">
           <mxGeometry height="60" width="150" x="222" y="40" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="lane1" source="n_start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#34495E;" target="n_dump">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="n_upload" parent="lane1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5D6D7E;fontSize=11;" value="Загрузка дампа в Data Integration Portal" vertex="1">
+        <mxCell id="n_upload" parent="lane1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5D6D7E;fontSize=11;" value="Приём данных в Data Integration Portal через API" vertex="1">
           <mxGeometry height="60" width="150" x="422" y="40" as="geometry" />
         </mxCell>
         <mxCell id="e2" edge="1" parent="lane1" source="n_dump" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#34495E;" target="n_upload">
@@ -116,7 +116,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="b4OvY-C9zGmrpKCg9AwC-22" parent="lane5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C0392B;fontSize=11;" value="Анализ и коррекция ошибочных позиций" vertex="1">
-          <mxGeometry height="60" width="150" x="1572" y="35" as="geometry" />
+          <mxGeometry height="60" width="150" x="1571" y="35" as="geometry" />
         </mxCell>
         <mxCell id="lane6" parent="pool" style="swimlane;horizontal=0;startSize=92;fillColor=#EAEDED;strokeColor=#5D6D7E;fontStyle=1;html=1;" value="Cloud POS" vertex="1">
           <mxGeometry height="130" width="2172" x="28" y="660" as="geometry" />
@@ -162,6 +162,13 @@
         <mxCell id="b4OvY-C9zGmrpKCg9AwC-28" connectable="0" parent="b4OvY-C9zGmrpKCg9AwC-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Да" vertex="1">
           <mxGeometry relative="1" x="-0.2206" y="-2" as="geometry">
             <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_recheck" edge="1" parent="pool" source="b4OvY-C9zGmrpKCg9AwC-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#C0392B;fontSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.85;entryY=1;entryDx=0;entryDy=0;" target="n_qc" value="Повторная проверка КК">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1546" y="595" />
+            </Array>
           </mxGeometry>
         </mxCell>
       </root>
